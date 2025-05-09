@@ -32,8 +32,8 @@ dining = st.radio('🍽️Has Dining Room?', ['Yes', 'No', 'Not specified'])
 hasDiningRoom = True if dining == 'Yes' else None
 diningS = st.text_input('🍽️Dining Room Surface(m²)')
 diningRoomSurface = float(diningS) if diningS else None
-building = st.selectbox('🏠Building Condition',['GOOD', 'TO_BE_DONE_UP', 'AS_NEW', 'JUST_RENOVATED', 'TO_RENOVATE', 'TO_RESTORE'])
-buildingCondition = building if building else None
+building = st.selectbox('🏠Building Condition',['GOOD', 'TO_BE_DONE_UP', 'AS_NEW', 'JUST_RENOVATED', 'TO_RENOVATE', 'TO_RESTORE','NOT_SPECIFIED'])
+buildingCondition = None if building=='NOT_SPECIFIED' else building
 construction = st.text_input('🏠Building Construction Year')
 buildingConstructionYear = float(construction) if construction else None
 facede = st.text_input('🏠Number of facedes')
@@ -44,20 +44,20 @@ street = st.text_input('🏠Street Facede Width (m)')
 streetFacadeWidth = float(street) if street else None
 lift = st.radio('🛗Has Lift', ['Yes', 'No', 'Not specified'])
 hasLift = True if lift == 'Yes' else None
-flood = st.selectbox('💧Flood Zone Type',['NON_FLOOD_ZONE', 'RECOGNIZED_FLOOD_ZONE', 'POSSIBLE_FLOOD_ZONE', 'CIRCUMSCRIBED_WATERSIDE_ZONE', 'POSSIBLE_N_CIRCUMSCRIBED_FLOOD_ZONE', 'RECOGNIZED_N_CIRCUMSCRIBED_FLOOD_ZONE', 'CIRCUMSCRIBED_FLOOD_ZONE', 'POSSIBLE_N_CIRCUMSCRIBED_WATERSIDE_ZONE', 'RECOGNIZED_N_CIRCUMSCRIBED_WATERSIDE_FLOOD_ZONE'])
-floodZoneType = flood if flood else None
+flood = st.selectbox('💧Flood Zone Type',['NON_FLOOD_ZONE', 'RECOGNIZED_FLOOD_ZONE', 'POSSIBLE_FLOOD_ZONE', 'CIRCUMSCRIBED_WATERSIDE_ZONE', 'POSSIBLE_N_CIRCUMSCRIBED_FLOOD_ZONE', 'RECOGNIZED_N_CIRCUMSCRIBED_FLOOD_ZONE', 'CIRCUMSCRIBED_FLOOD_ZONE', 'POSSIBLE_N_CIRCUMSCRIBED_WATERSIDE_ZONE', 'RECOGNIZED_N_CIRCUMSCRIBED_WATERSIDE_FLOOD_ZONE','NOT_SPECIFIED'])
+floodZoneType = None if flood=='NOT_SPECIFIED' else flood
 heat = st.radio('🔥Has Heat Pump', ['Yes', 'No', 'Not specified'])
 hasHeatPump = True if heat == 'Yes' else None
-heatT = st.selectbox('🔥Heating Type',['GAS', 'FUELOIL', 'ELECTRIC', 'PELLET', 'SOLAR', 'CARBON', 'WOOD'])
-heatingType = heatT if heatT else None
+heatT = st.selectbox('🔥Heating Type',['GAS', 'FUELOIL', 'ELECTRIC', 'PELLET', 'SOLAR', 'CARBON', 'WOOD', 'NOT_SPECIFIED'])
+heatingType = None if heatT=='NOT_SPECIFIED' else heatT
 photo = st.radio('☀️Has Photovoltaic Panels', ['Yes', 'No', 'Not specified'])
 hasPhotovoltaicPanels = True if photo == 'Yes' else None
 therm = st.radio('🌡️Has Thermic Panels', ['Yes', 'No', 'Not specified'])
 hasThermicPanels = True if therm == 'Yes' else None
 kitchenS = st.text_input('🧑‍🍳Kitchen Surface(m²)')
 kitchenSurface = float(kitchenS) if kitchenS else None
-kitchenT = st.selectbox('🧑‍🍳Kitchen Type',['SEMI_EQUIPPED', 'INSTALLED', 'HYPER_EQUIPPED', 'NOT_INSTALLED', 'USA_UNINSTALLED', 'USA_HYPER_EQUIPPED', 'USA_INSTALLED', 'USA_SEMI_EQUIPPED'])
-kitchenType = kitchenT if kitchenT else None
+kitchenT = st.selectbox('🧑‍🍳Kitchen Type',['SEMI_EQUIPPED', 'INSTALLED', 'HYPER_EQUIPPED', 'NOT_INSTALLED', 'USA_UNINSTALLED', 'USA_HYPER_EQUIPPED', 'USA_INSTALLED', 'USA_SEMI_EQUIPPED', 'NOT_SPECIFIED'])
+kitchenType = None if kitchenT=='NOT_SPECIFIED' else kitchenT
 living = st.radio('🛋️Has Living Room', ['Yes', 'No', 'Not specified'])
 hasLivingRoom = True if living == 'Yes' else None
 livingS = st.text_input('🛋️Living Room Surface(m²)')
@@ -66,8 +66,8 @@ garden = st.radio('🌺Has Garden', ['Yes', 'No', 'Not specified'])
 hasGarden = True if garden == 'Yes' else None
 gardenS = st.text_input('🌺Garden Surface(m²)')
 gardenSurface = float(gardenS) if gardenS else None
-gardenO = st.selectbox('🌺Garden Type',['NORTH_WEST', 'NORTH', 'NORTH_EAST', 'EAST', 'SOUTH_EAST', 'SOUTH_WEST', 'SOUTH', 'WEST'])
-gardenOrientation = gardenO if gardenO else None
+gardenO = st.selectbox('🌺Garden Type',['NORTH_WEST', 'NORTH', 'NORTH_EAST', 'EAST', 'SOUTH_EAST', 'SOUTH_WEST', 'SOUTH', 'WEST', 'NOT_SPECIFIED'])
+gardenOrientation = None if gardenO=='NOT_SPECIFIED' else gardenO
 parkI = st.text_input('🚗Number of Indoor Parking')
 parkingCountIndoor = float(parkI) if parkI else None
 parkO = st.text_input('🚗Number of Outdoor Parking')
@@ -90,10 +90,10 @@ terrace = st.radio('🏡Has Terrace', ['Yes', 'No', 'Not specified'])
 hasTerrace = True if terrace == 'Yes' else None
 terraceS = st.text_input('🏡Terrace Surface(m²)')
 terraceSurface = float(terraceS) if terraceS else None
-terraceO = st.selectbox('🏡Terrace Orientation', ['SOUTH_WEST', 'EAST', 'WEST', 'SOUTH_EAST', 'SOUTH', 'NORTH_WEST', 'NORTH', 'NORTH_EAST'])
-terraceOrientation = terraceO if terraceO else None
-epc = st.selectbox('EPC Score', ['A++', 'A+', 'A', 'B', 'C', 'D', 'E', 'F', 'G'])
-epcScore = epc if epc else None
+terraceO = st.selectbox('🏡Terrace Orientation', ['SOUTH_WEST', 'EAST', 'WEST', 'SOUTH_EAST', 'SOUTH', 'NORTH_WEST', 'NORTH', 'NORTH_EAST', 'NOT_SPECIFIED'])
+terraceOrientation = None if terraceO=='NOT_SPECIFIED' else terraceO
+epc = st.selectbox('EPC Score', ['A++', 'A+', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'NOT_SPECIFIED'])
+epcScore = None if epc=='NOT_SPECIFIED' else epc
 
 if not postCode:
     st.error('Please enter the required fields.')
